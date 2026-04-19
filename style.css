@@ -1,0 +1,133 @@
+:root {
+    /* colors */
+    --primary: #C9996B;
+    --secondary: #EDE9E6;
+    --third: #5C4F4A;
+    --fourth: #5C766D;
+
+    /* font sizes */
+    --fs-xs: 12px;
+    --fs-sm: 14px;
+    --fs-md: 16px;
+    --fs-lg: 20px;
+    --fs-xl: 24px;
+    --fs-xxl: 32px;
+
+    /* font weight */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+
+    /* spacing */
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 30px;
+
+    /* border radius */
+    --radius-xs: 8px;
+    --radius-sm: 12px;
+    --radius-md: 15px;
+    --radius-lg: 20px;
+
+    /* shadow */
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    /* transition */
+    --transition: all 0.3s ease;
+}
+
+@font-face {
+    font-family: regular;
+    src: url(./font/ChironHeiHK-Regular.ttf);
+}
+
+@font-face {
+    font-family: medium;
+    src: url(./font/ChironHeiHK-Medium.ttf);
+}
+
+@font-face {
+    font-family: light;
+    src: url(./font/ChironHeiHK-Light.ttf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: regular;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    align-items: flex-start;
+    background: var(--primary);
+}
+
+.container {
+    padding: var(--space-xl);
+    display: flex;
+    gap: var(--space-lg);
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.elem {
+    width: 240px;
+    height: 350px;
+    background: var(--secondary);
+    border-radius: var(--radius-md);
+    text-align: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.elem:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.elem h2 {
+    font-size: var(--fs-xxl);
+    color: var(--secondary);
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+}
+
+.elem img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+.fullElem {
+    width: 100%;
+    height: 100vh;
+    background: var(--primary);
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fs-xl);
+    display: none;
+}
