@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dashboard Project</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -19,7 +19,7 @@
         </div>
         <div class="elem" id="2">
           <img src="./img/dhanya-purohit-tZQejnA6sCg-unsplash.jpg" alt="" />
-          <h2>Motivational qoutes</h2>
+          <h2>Motivational quotes</h2>
         </div>
         <div class="elem" id="3">
           <img src="./img/martin-brechtl-6fLeuILx85I-unsplash.jpg" alt="" />
@@ -30,11 +30,52 @@
           <h2>Daily Timers</h2>
         </div>
       </section>
-      <section class="fullElem todos"><h2>Todos section</h2></section>
-      <section class="fullElem dailyPlanner"><h2>Day Planner</h2></section>
-      <section class="fullElem motivs"><h2>Motivational quotes</h2></section>
-      <section class="fullElem pomodoro"><h2>Pomodoro Timers</h2></section>
-      <section class="fullElem dailyTimer"><h2>Daily Timers</h2></section>
+
+      <section class="fullElem todos">
+        <div class="top">
+          <h2>Todos section</h2>
+          <button class="close-btn">Close</button>
+        </div>
+        <div class="todos-body">
+          <div class="addTask">
+            <form id="taskForm">
+              <input type="text" id="taskInput" placeholder="Add a task" />
+              <button class="add-btn" type="submit">Add</button>
+            </form>
+          </div>
+
+          <div class="allTask" id="allTask">
+            <div class="task-item">
+              <p>Buy groceries</p>
+              <button class="mark-btn">Mark as Completed</button>
+            </div>
+            <div class="task-item">
+              <p>Read a book</p>
+              <button class="mark-btn">Mark as Completed</button>
+            </div>
+            <div class="task-item">
+              <p>Go for a walk</p>
+              <button class="mark-btn">Mark as Completed</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="fullElem dailyPlanner">
+        <h2>Day Planner</h2>
+        <button class="close-btn">Close</button>
+      </section>
+      <section class="fullElem motivs">
+        <h2>Motivational quotes</h2>
+        <button class="close-btn">Close</button>
+      </section>
+      <section class="fullElem pomodoro">
+        <h2>Pomodoro Timers</h2>
+        <button class="close-btn">Close</button>
+      </section>
+      <section class="fullElem dailyTimer">
+        <h2>Daily Timers</h2>
+        <button class="close-btn">Close</button>
+      </section>
     </main>
     <script src="script.js"></script>
   </body>

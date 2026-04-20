@@ -1,9 +1,10 @@
 :root {
     /* colors */
     --primary: #C9996B;
-    --secondary: #EDE9E6;
+    --secondary: #ffffff;
     --third: #5C4F4A;
     --fourth: #5C766D;
+    --red: #d45d3c;
 
     /* font sizes */
     --fs-xs: 12px;
@@ -41,6 +42,7 @@
     --transition: all 0.3s ease;
 }
 
+/* Fonts */
 @font-face {
     font-family: regular;
     src: url(./font/ChironHeiHK-Regular.ttf);
@@ -56,7 +58,7 @@
     src: url(./font/ChironHeiHK-Light.ttf);
 }
 
-
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -64,36 +66,42 @@
     font-family: regular;
 }
 
-html,
-body {
+html, body {
     height: 100%;
     width: 100%;
 }
 
+/* Body */
 body {
     display: flex;
     align-items: flex-start;
     background: var(--primary);
 }
 
-.container {
-    padding: var(--space-xl);
-    display: flex;
-    gap: var(--space-lg);
+main{
+    height: 100%;
     width: 100%;
-    align-items: flex-start;
-    flex-wrap: wrap;
 }
 
+/* Container */
+.container {
+    padding: var(--space-xl);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: flex-start;
+}
+
+/* Card */
 .elem {
     width: 240px;
     height: 350px;
     background: var(--secondary);
     border-radius: var(--radius-md);
-    text-align: center;
     cursor: pointer;
     box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
 }
@@ -103,31 +111,280 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
+.elem:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+}
+
+/* Image */
+.elem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none; /* important fix */
+}
+
+/* Title */
 .elem h2 {
     font-size: var(--fs-xxl);
     color: var(--secondary);
     position: absolute;
     bottom: 20px;
-    right: 20px;
-
+    text-align: center;
+    z-index: 2;
 }
 
-.elem img {
-    object-fit: cover;
-    object-position: center;
-    height: 100%;
-    width: 100%;
-
-}
-
+/* Full section */
 .fullElem {
     width: 100%;
-    height: 100vh;
     background: var(--primary);
     color: var(--secondary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--fs-xl);
     display: none;
+    padding: var(--space-xl);
+}
+
+/* Top bar */
+.fullElem .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: var(--space-xl);
+}
+
+.fullElem .top h2 {
+    font-size: var(--fs-xxl);
+    margin: 0;
+}
+.fullElem .close-btn {
+    padding: 0.65rem 1.4rem;
+    border: none;
+    border-radius: 100px;
+    background: linear-gradient(135deg, #daaa7e, #c07a2b);
+    color: #fff;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(160, 82, 45, 0.4);
+    transition: var(--transition);
+}
+
+.fullElem .close-btn:hover {
+    background: linear-gradient(135deg, #d8a372, #c57c28);
+    transform: translateY(-2px);
+}
+
+.fullElem .close-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px #d8a372;
+}
+/* Todos Layout */
+.todos-body {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-xl);
+    width: 100%;
+    align-items: flex-start;
+}
+
+.todos-body .addTask {
+    width: 35%;
+}
+
+.todos-body .allTask {
+    width: 65%;
+}
+.todos {
+
+    flex-direction: column;
+    gap: var(--space-lg);
+    min-height: 100vh;
+}
+
+/* Add Task */
+.todos .addTask {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+}
+
+.todos .addTask form {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+.todos .addTask form input[type="text"] {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--third);
+    font-size: var(--fs-md);
+    outline: none;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.todos .addTask form input[type="text"]:focus {
+    background: #ffffff;
+    box-shadow: var(--shadow-md);
+}
+
+.todos .addTask form input[type="text"]::placeholder {
+    color: rgba(92, 79, 74, 0.45);
+}
+
+.todos .addTask form button[type="submit"] {
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 100px;
+    background: var(--third);
+    color: var(--secondary);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+}
+
+.todos .addTask form button[type="submit"]:hover {
+    background: var(--fourth);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* All Tasks */
+.todos .allTask {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.todos .allTask .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md) var(--space-xl);
+    transition: var(--transition);
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.todos .allTask .task-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: var(--secondary);
+}
+
+.todos .allTask .task-item p {
+    font-size: var(--fs-md);
+    color: var(--secondary);
+    letter-spacing: 0.3px;
+}
+
+.todos .allTask .task-item.completed p {
+    text-decoration: line-through;
+    opacity: 0.45;
+}
+
+.todos .allTask .task-item.completed {
+    border-left-color: var(--fourth);
+    background: rgba(92, 118, 109, 0.2);
+}
+
+.todos .allTask .task-item .mark-btn {
+    padding: 0.45rem 1rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--secondary);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+
+.todos .allTask .task-item .mark-btn:hover {
+    background: var(--fourth);
+    border-color: var(--fourth);
+    transform: translateY(-1px);
+}
+
+.todos .allTask .task-item.completed .mark-btn {
+    background: var(--fourth);
+    border-color: var(--fourth);
+}
+
+.todos .allTask {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.todos .allTask .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md) var(--space-xl);
+    transition: var(--transition);
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.todos .allTask .task-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: var(--secondary);
+}
+
+.todos .allTask .task-item p {
+    font-size: var(--fs-md);
+    color: var(--secondary);
+    letter-spacing: 0.3px;
+}
+
+.todos .allTask .task-item.completed p {
+    text-decoration: line-through;
+    opacity: 0.45;
+}
+
+.todos .allTask .task-item.completed {
+    border-left-color: var(--fourth);
+    background: rgba(92, 118, 109, 0.2);
+}
+
+.todos .allTask .task-item .mark-btn {
+    padding: 0.45rem 1rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--secondary);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+
+.todos .allTask .task-item .mark-btn:hover {
+    background: var(--fourth);
+    border-color: var(--fourth);
+    transform: translateY(-1px);
+}
+
+.todos .allTask .task-item.completed .mark-btn {
+    background: var(--fourth);
+    border-color: var(--fourth);
 }
