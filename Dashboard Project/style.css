@@ -364,6 +364,29 @@ main{
     background: rgba(92, 118, 109, 0.2);
 }
 
+.important-task {
+  background: #fff5f5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.important-text {
+  color: #c92a2a; /* premium red */
+  font-weight: 600;
+}
+
+.badge {
+  background: #c92a2a;
+  color: white;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
 .todos .allTask .task-item .mark-btn {
     padding: 0.45rem 1rem;
     border: 1.5px solid rgba(255, 255, 255, 0.5);
