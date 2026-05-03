@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="logo">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <path d="M13 2L25 24H1L13 2Z" fill="#111110"/>
+        </svg>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Book A Call ↗</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-sidebar fade">Product designer</div>
+
+      <div class="hero-left">
+        <div class="hero-stats fade" style="transition-delay:.1s">
+          <div>
+            <span class="stat-num" data-target="200" data-prefix="+">+0</span>
+            <span class="stat-label">Project completed</span>
+          </div>
+          <div>
+            <span class="stat-num" data-target="50" data-prefix="+">+0</span>
+            <span class="stat-label">Startup raised</span>
+          </div>
+        </div>
+
+        <div class="fade" style="transition-delay:.25s">
+          <h1 class="hero-hello">Hello</h1>
+          <p class="hero-tagline">— It's D.Nova a design wizard</p>
+        </div>
+
+        <div class="hero-bottom fade" style="transition-delay:.4s">
+          <div class="scroll-cue">Scroll down <span class="scroll-arrow">↓</span></div>
+          <span class="hero-year">2024</span>
+        </div>
+      </div>
+
+      <div class="hero-portrait fade" style="transition-delay:.15s">
+        <!-- Replace with your own photo -->
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="Portrait" />
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-grid">
+        <div class="section-label">About Me</div>
+        <div>
+          <h2 class="about-heading">Crafting digital <em>experiences</em> that leave a mark</h2>
+          <p class="about-body">I'm a product designer with over a decade of experience turning complex problems into elegant, user-centred solutions. I work at the intersection of strategy, design, and technology.</p>
+          <a href="#portfolio" class="text-link">See my work ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="services-header">
+        <span class="section-label" style="margin:0">Services</span>
+        <h2 class="section-heading">What I do</h2>
+      </div>
+      <div id="services-list"></div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="portfolio-header">
+        <span class="section-label" style="margin:0">Portfolio</span>
+        <h2 class="section-heading">Selected work</h2>
+      </div>
+      <div class="portfolio-grid" id="portfolio-grid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-sub">Let's work together</p>
+          <h2 class="footer-heading">Have a project<br>in mind?</h2>
+          <a href="mailto:hello@dnova.design" class="footer-email">hello@dnova.design</a>
+        </div>
+        <div class="footer-socials">
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Dribbble</a>
+          <a href="#">Behance</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 D.Nova</span>
+        <span>All rights reserved</span>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
