@@ -7,7 +7,125 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- THEME PICKER -->
+    <div class="theme-fab" id="themeFab">
+      <button class="theme-fab-btn" id="themeFabBtn" title="Change Theme">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a10 10 0 0 1 0 20C6.5 20 2 16 2 12s4.5-10 10-10z" />
+          <path d="M12 2v20M2 12h20" />
+        </svg>
+      </button>
+
+      <div class="theme-panel" id="themePanel">
+        <p class="theme-panel-title">Choose Theme</p>
+        <div class="theme-options">
+          <button
+            class="theme-opt active"
+            data-theme="default"
+            title="Warm Earth"
+          >
+            <span
+              class="opt-swatch"
+              style="background: linear-gradient(135deg, #c9996b, #5c4f4a)"
+            ></span>
+            <span class="opt-label">Earth</span>
+          </button>
+
+          <button class="theme-opt" data-theme="dark" title="Pure Dark">
+            <span
+              class="opt-swatch"
+              style="background: linear-gradient(135deg, #1a1a2e, #e94560)"
+            ></span>
+            <span class="opt-label">Dark</span>
+          </button>
+
+          <button class="theme-opt" data-theme="light" title="Clean Light">
+            <span
+              class="opt-swatch"
+              style="background: linear-gradient(135deg, #f5f0e8, #c0a882)"
+            ></span>
+            <span class="opt-label">Light</span>
+          </button>
+
+          <button class="theme-opt" data-theme="forest" title="Forest Green">
+            <span
+              class="opt-swatch"
+              style="background: linear-gradient(135deg, #1a2e1a, #4caf7d)"
+            ></span>
+            <span class="opt-label">Forest</span>
+          </button>
+
+          <button class="theme-opt" data-theme="ocean" title="Deep Ocean">
+            <span
+              class="opt-swatch"
+              style="background: linear-gradient(135deg, #0a1628, #00b4d8)"
+            ></span>
+            <span class="opt-label">Ocean</span>
+          </button>
+
+          <button class="theme-opt" data-theme="rose" title="Rose Gold">
+            <span
+              class="opt-swatch"
+              style="background: linear-gradient(135deg, #2d1b2e, #e8a0bf)"
+            ></span>
+            <span class="opt-label">Rose</span>
+          </button>
+
+          <button class="theme-opt" data-theme="sunset" title="Sunset">
+            <span
+              class="opt-swatch"
+              style="background: linear-gradient(135deg, #1a0a00, #ff6b35)"
+            ></span>
+            <span class="opt-label">Sunset</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <main>
+      <!-- HEADER -->
+      <header class="dash-header" id="dashHeader">
+        <div class="header-bg-overlay"></div>
+
+        <div class="header-content">
+          <!-- LEFT: greeting + date -->
+          <div class="header-left">
+            <span class="header-greeting" id="headerGreeting"
+              >Good Morning</span
+            >
+            <h1 class="header-date" id="headerDate">Sunday, May 4</h1>
+          </div>
+
+          <!-- CENTER: big clock -->
+          <div class="header-center">
+            <span class="header-clock" id="headerClock">00:00</span>
+            <span class="header-seconds" id="headerSeconds">00</span>
+          </div>
+
+          <!-- RIGHT: weather -->
+          <div class="header-right">
+            <div class="weather-card" id="weatherCard">
+              <span class="weather-icon" id="weatherIcon">⛅</span>
+              <div class="weather-info">
+                <span class="weather-temp" id="weatherTemp">--°C</span>
+                <span class="weather-desc" id="weatherDesc">Loading...</span>
+                <span class="weather-city" id="weatherCity">Barishal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <section class="container">
         <div class="elem" id="0">
           <img src="./img/conny-schneider-2-kXLvGOU5A-unsplash.jpg" alt="" />
@@ -31,7 +149,7 @@
         </div>
       </section>
 
-      <section class="fullElem todos">
+      <section class="fullElem todo-page">
         <div class="top">
           <h2>Todos section</h2>
           <button class="close-btn">Close</button>
@@ -46,24 +164,275 @@
             </form>
           </div>
 
-          <div class="allTask" id="allTask">
-            
-            
+          <div class="allTask" id="allTask"></div>
+        </div>
+      </section>
+
+      <section class="fullElem dailyPlanner">
+        <div class="planner-bg">
+          <div class="planner-orb orb1"></div>
+          <div class="planner-orb orb2"></div>
+          <div class="planner-orb orb3"></div>
+        </div>
+
+        <div class="planner-header">
+          <div class="planner-title-group">
+            <span class="planner-date-label" id="plannerDateLabel"></span>
+            <h2 class="planner-title">Day Planner</h2>
+          </div>
+          <button class="close-btn">Close</button>
+        </div>
+
+        <div class="planner-body">
+          <!-- Timeline -->
+          <div class="planner-timeline" id="plannerTimeline"></div>
+
+          <!-- Add Event Panel -->
+          <div class="planner-add-panel">
+            <h3 class="panel-heading">Add Block</h3>
+            <div class="planner-form">
+              <div class="pf-row">
+                <label>Time</label>
+                <select id="plannerHour"></select>
+              </div>
+              <div class="pf-row">
+                <label>Label</label>
+                <input
+                  type="text"
+                  id="plannerLabel"
+                  placeholder="e.g. Deep work, Lunch…"
+                />
+              </div>
+              <div class="pf-row">
+                <label>Color</label>
+                <div class="color-picker" id="colorPicker">
+                  <span
+                    class="cp-dot active"
+                    data-color="#e07b54"
+                    style="background: #e07b54"
+                  ></span>
+                  <span
+                    class="cp-dot"
+                    data-color="#5c9e8a"
+                    style="background: #5c9e8a"
+                  ></span>
+                  <span
+                    class="cp-dot"
+                    data-color="#7b8fe0"
+                    style="background: #7b8fe0"
+                  ></span>
+                  <span
+                    class="cp-dot"
+                    data-color="#e0c45c"
+                    style="background: #e0c45c"
+                  ></span>
+                  <span
+                    class="cp-dot"
+                    data-color="#c45c8a"
+                    style="background: #c45c8a"
+                  ></span>
+                </div>
+              </div>
+              <button class="planner-add-btn" id="plannerAddBtn">
+                ＋ Add Block
+              </button>
+            </div>
           </div>
         </div>
       </section>
-      <section class="fullElem dailyPlanner">
-        <h2>Day Planner</h2>
-        <button class="close-btn">Close</button>
-      </section>
+
       <section class="fullElem motivs">
-        <h2>Motivational quotes</h2>
-        <button class="close-btn">Close</button>
+        <div class="motivs-bg">
+          <div class="motivs-shape s1"></div>
+          <div class="motivs-shape s2"></div>
+          <div class="motivs-shape s3"></div>
+        </div>
+
+        <div class="motivs-header">
+          <span class="motivs-eyebrow">✦ Daily Inspiration</span>
+          <h2 class="motivs-title">Motivational Quotes</h2>
+          <button class="close-btn">Close</button>
+        </div>
+
+        <div class="motivs-body">
+          <!-- Big quote display card -->
+          <div class="quote-stage">
+            <span class="quote-mark">"</span>
+            <p class="quote-text" id="quoteText">
+              The only way to do great work is to love what you do.
+            </p>
+            <span class="quote-author" id="quoteAuthor">— Steve Jobs</span>
+            <div class="quote-actions">
+              <button class="q-btn prev-btn" id="prevBtn">← Prev</button>
+              <button class="q-btn next-btn" id="nextBtn">Next →</button>
+            </div>
+          </div>
+
+          <!-- Side panel -->
+          <div class="motivs-side">
+            <!-- Category filters -->
+            <div class="motivs-filters" id="motivsFilters">
+              <span class="filter-tag active" data-cat="all">All</span>
+              <span class="filter-tag" data-cat="success">Success</span>
+              <span class="filter-tag" data-cat="mindset">Mindset</span>
+              <span class="filter-tag" data-cat="courage">Courage</span>
+            </div>
+
+            <!-- Quote counter -->
+            <div class="quote-counter">
+              <span id="quoteIndex">1</span>
+              <span class="counter-sep">/</span>
+              <span id="quoteTotal">10</span>
+            </div>
+
+            <!-- Saved quotes list -->
+            <div class="saved-panel">
+              <h4 class="saved-heading">Saved Quotes</h4>
+              <div class="saved-list" id="savedList">
+                <p class="saved-empty">No saved quotes yet.</p>
+              </div>
+              <button class="save-btn" id="saveBtn">♡ Save this quote</button>
+            </div>
+          </div>
+        </div>
       </section>
+
       <section class="fullElem pomodoro">
-        <h2>Pomodoro Timers</h2>
-        <button class="close-btn">Close</button>
+        <div class="pomodoro-card">
+          <!-- TOP BAR -->
+          <div class="pom-top">
+            <span class="pom-title">Pomodoro</span>
+            <button class="close-btn">✕ Close</button>
+          </div>
+
+          <!-- MODE TABS -->
+          <div class="pom-tabs">
+            <button class="pom-tab active">Focus</button>
+            <button class="pom-tab">Short Break</button>
+            <button class="pom-tab">Long Break</button>
+          </div>
+
+          <!-- RING TIMER -->
+          <div class="pom-ring-wrap">
+            <div class="pom-ring-outer">
+              <svg class="pom-ring-svg" viewBox="0 0 200 200">
+                <circle class="pom-ring-track" cx="100" cy="100" r="90" />
+                <circle class="pom-ring-accent" cx="100" cy="100" r="82" />
+                <circle class="pom-ring-progress" cx="100" cy="100" r="90" />
+              </svg>
+              <div class="pom-ring-inner">
+                <span class="pom-time" id="pom-display">25:00</span>
+                <span class="pom-ring-label">Focus Time</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTROLS -->
+          <div class="pom-controls">
+            <!-- Restart button -->
+            <button class="pom-btn-secondary" title="Restart">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="1 4 1 10 7 10" />
+                <path d="M3.51 15a9 9 0 1 0 .49-3.5" />
+              </svg>
+            </button>
+
+            <!-- Play / Pause button -->
+            <button class="pom-btn-play" id="pom-play-btn">
+              <svg
+                class="icon-play"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="white"
+                stroke="none"
+              >
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+
+              <!-- new pause SVG -->
+              <svg
+                class="icon-pause"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="white"
+                stroke="none"
+              >
+                <rect x="5" y="3" width="4" height="18" rx="1" />
+                <rect x="15" y="3" width="4" height="18" rx="1" />
+              </svg>
+            </button>
+
+            <!-- Skip button -->
+            <button class="pom-btn-secondary" title="Skip">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 4 15 12 5 20 5 4" />
+                <line x1="19" y1="5" x2="19" y2="19" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- SESSION DOTS -->
+          <div class="pom-sessions">
+            <div class="pom-dot done"></div>
+            <div class="pom-dot done"></div>
+            <div class="pom-dot current"></div>
+            <div class="pom-dot"></div>
+          </div>
+
+          <!-- STATS -->
+          <div class="pom-stats">
+            <div class="pom-stat">
+              <div class="pom-stat-val" id="stat-sessions">2</div>
+              <div class="pom-stat-key">Sessions</div>
+            </div>
+            <div class="pom-stat">
+              <div class="pom-stat-val" id="stat-focus">50m</div>
+              <div class="pom-stat-key">Focused</div>
+            </div>
+            <div class="pom-stat">
+              <div class="pom-stat-val" id="stat-breaks">1</div>
+              <div class="pom-stat-key">Breaks</div>
+            </div>
+          </div>
+
+          <!-- SETTINGS STRIP -->
+          <div class="pom-settings">
+            <div class="pom-setting-item">
+              <span class="pom-setting-lbl">Focus</span>
+              <span class="pom-setting-val">25m</span>
+            </div>
+            <div class="pom-setting-item">
+              <span class="pom-setting-lbl">Short</span>
+              <span class="pom-setting-val">5m</span>
+            </div>
+            <div class="pom-setting-item">
+              <span class="pom-setting-lbl">Long</span>
+              <span class="pom-setting-val">15m</span>
+            </div>
+          </div>
+        </div>
       </section>
+
       <section class="fullElem dailyTimer">
         <h2>Daily Timers</h2>
         <button class="close-btn">Close</button>
