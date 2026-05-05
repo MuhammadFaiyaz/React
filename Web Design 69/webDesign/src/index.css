@@ -1,0 +1,245 @@
+
+:root{
+  --primary-color: #ffffff;
+  --text-color: #202020;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 20px;
+  --fs-2xl: 24px;
+  --fs-3xl: 28px;
+  --fs-4xl: 32px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-1: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-2: 0 4px 8px rgba(0,0,0,0.10);
+  --shadow-3: 0 8px 16px rgba(0,0,0,0.12);
+  --shadow-4: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+
+@font-face {
+  font-family: poppins;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: poppinsBlack;
+  src: url(./assets/fonts/Poppins-Black.ttf);
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  font-family: poppins, sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  height: 100%;
+  width: 100%;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-10);
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-logo {
+  font-family: poppins, sans-serif;
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.nav-options {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-options a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: var(--fs-lg);
+  transition: opacity 0.2s ease;
+}
+
+.nav-options a:hover {
+  opacity: 0.6;
+}
+
+.nav-options a.active {
+  border: 1.5px solid var(--text-color);
+  border-radius: 999px;
+  padding: var(--space-1) var(--space-3);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--text-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 999px;
+  padding: var(--space-2) var(--space-6);
+  font-size: var(--fs-lg);
+  font-family: poppins, sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.nav-btn:hover {
+  opacity: 0.85;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 0 var(--space-10);
+  padding-bottom: var(--space-10);
+}
+
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0.55) 60%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  border-radius: var(--radius-lg);
+} 
+.hero-bg {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  width: 70%;
+}
+
+.hero-title {
+  font-family: poppinsBlack, sans-serif;
+  font-size: var(--fs-3xl);
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+}
+
+.hero-subtitle {
+  font-size: var(--fs-md);
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.hero-btn {
+  background-color: var(--text-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 999px;
+  padding: var(--space-3) var(--space-7);
+  font-size: var(--fs-sm);
+  font-family: poppins, sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.hero-btn:hover {
+  opacity: 0.85;
+}
+
+.hero-coaches {
+  position: absolute;
+  bottom: var(--space-5);
+  left: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: #ffffff;
+}
+
+.coach-avatars {
+  display: flex;
+}
+
+.coach-avatars img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  margin-left: -8px;
+}
+
+.coach-avatars img:first-child {
+  margin-left: 0;
+}
+
+.hero-coaches-text p {
+  font-size: 11px;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.hero-socials {
+  position: absolute;
+  bottom: var(--space-5);
+  right: var(--space-6);
+  display: flex;
+  gap: var(--space-5);
+}
+
+.hero-socials a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.hero-socials a:hover {
+  opacity: 1;
+}
