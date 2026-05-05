@@ -1,0 +1,46 @@
+
+@import "tailwindcss";
+
+:root{
+  --primary-color: #ffffff;
+  --text-color: #202020;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 20px;
+  --fs-2xl: 24px;
+  --fs-3xl: 28px;
+  --fs-4xl: 32px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-1: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-2: 0 4px 8px rgba(0,0,0,0.10);
+  --shadow-3: 0 8px 16px rgba(0,0,0,0.12);
+  --shadow-4: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+
+@font-face {
+  font-family: poppins;
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: poppinsBlack;
+  src: url(./fonts/Poppins-Black.ttf);
+}
